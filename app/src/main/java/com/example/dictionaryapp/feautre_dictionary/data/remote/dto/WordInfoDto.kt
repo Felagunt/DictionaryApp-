@@ -1,6 +1,6 @@
 package com.example.dictionaryapp.feautre_dictionary.data.remote.dto
 
-import com.example.dictionaryapp.feautre_dictionary.domain.model.WordInfo
+import com.example.dictionaryapp.feautre_dictionary.data.local.entity.WordInfoEntity
 
 data class WordInfoDto(
     val meanings: List<MeaningDto>,
@@ -9,12 +9,13 @@ data class WordInfoDto(
     val origin: String,
     val word: String
 ) {
-    fun toWordInfo(): WordInfo {
-        return WordInfo(
+    fun toWordInfoEntity(): WordInfoEntity {
+        return WordInfoEntity(
             meanings = meanings.map { it.toMeaning() },
             origin = origin,
             phonetic = phonetic,
             word = word
         )
     }
+
 }
